@@ -4,76 +4,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Rock Paper Scissors - Ultimate Game</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 
 <body>
     
     <main id="main">
         
-            <div id="header">
-                
-                <h1>Welcome to Rock Paper Scissor Game</h1>
-                <img src="GameImage/rock-paper-scissors.png" alt="">
-            
+        <div id="header">
+            <h1>🎮 Rock Paper Scissors Ultimate 🎮</h1>
+            <img src="GameImage/rock-paper-scissors.png" alt="Rock Paper Scissors Logo">
+        </div>
+
+        <!-- Game Stats -->
+        <div id="gameStats">
+            <div class="stat-item">
+                <i class="fas fa-trophy"></i>
+                <span>Round: <span id="roundNumber">1</span></span>
             </div>
-
-            <div id="image">
-                
-                <!-- Image 1 -->
-                <div class="image" id="rock">
-                    <img src="GameImage/stone.png">
-                </div>
-
-                <!-- Image 2 -->
-
-                <div class="image"  id="paper">
-                    <img src="GameImage/scroll.png" >
-                </div>
-
-                <!-- Image 3 -->
-
-                <div class="image" id="scissor">
-                    <img src="GameImage/cut.png" >
-                </div>
-
+            <div class="stat-item">
+                <i class="fas fa-gamepad"></i>
+                <span>Total Games: <span id="totalGames">0</span></span>
             </div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span>Time: <span id="gameTimer">00:00</span></span>
+            </div>
+        </div>
 
-            <div id="points">
-                
-                <div class="point" id="user">
-                    <h1>User 
-                        <img src="GameImage/programmer.png">
-                    :   <span id="userPoint">0</span>
-                    </h1>
-
-                </div>
-
-                <div class="point" id="computer">
-                    
-                    <h1>Computer 
-                        <img src="GameImage/computer.png">
-                    :   <span id="computerPoint">0</span>
-                    </h1>
-
-
+        <!-- Game Area -->
+        <div id="gameArea">
+            <div id="playerSection" class="game-section">
+                <h2>Your Choice</h2>
+                <div id="playerChoice" class="choice-display">
+                    <i class="fas fa-question"></i>
+                    <span>Choose your weapon!</span>
                 </div>
             </div>
 
-            <div id="result">
-              <h1>Play Your move! </h1>
-              <img src="GameImage/play-button.png">
+            <div id="vsSection">
+                <div id="versus">VS</div>
+                <div id="countdown"></div>
             </div>
 
-    
-        </main>
+            <div id="computerSection" class="game-section">
+                <h2>Computer Choice</h2>
+                <div id="computerChoice" class="choice-display">
+                    <i class="fas fa-robot"></i>
+                    <span>Thinking...</span>
+                </div>
+            </div>
+        </div>
 
-    <script src="games.js">
+        <div id="image">
+            <!-- Image 1 -->
+            <div class="image" id="rock" data-choice="rock">
+                <img src="GameImage/stone.png" alt="Rock">
+                <span class="choice-label">Rock</span>
+                <div class="ripple"></div>
+            </div>
 
-    </script>
+            <!-- Image 2 -->
+            <div class="image" id="paper" data-choice="paper">
+                <img src="GameImage/scroll.png" alt="Paper">
+                <span class="choice-label">Paper</span>
+                <div class="ripple"></div>
+            </div>
 
+            <!-- Image 3 -->
+            <div class="image" id="scissor" data-choice="scissor">
+                <img src="GameImage/cut.png" alt="Scissors">
+                <span class="choice-label">Scissors</span>
+                <div class="ripple"></div>
+            </div>
+        </div>
 
-    </body>
+        <div id="points">
+            <div class="point" id="user">
+                <div class="score-header">
+                    <img src="GameImage/programmer.png" alt="Player">
+                    <h2>You</h2>
+                </div>
+                <div class="score-number">
+                    <span id="userPoint">0</span>
+                </div>
+                <div class="win-streak">
+                    <i class="fas fa-fire"></i>
+                    <span id="userStreak">0</span>
+                </div>
+            </div>
+
+            <div class="point" id="computer">
+                <div class="score-header">
+                    <img src="GameImage/computer.png" alt="Computer">
+                    <h2>AI</h2>
+                </div>
+                <div class="score-number">
+                    <span id="computerPoint">0</span>
+                </div>
+                <div class="win-streak">
+                    <i class="fas fa-fire"></i>
+                    <span id="computerStreak">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="result">
+            <h1>🎯 Choose your move to start playing! 🎯</h1>
+            <img src="GameImage/play-button.png" alt="Play Button">
+        </div>
+
+        <!-- Control Panel -->
+        <div id="controlPanel">
+            <button id="resetBtn" class="control-btn">
+                <i class="fas fa-redo"></i>
+                Reset Game
+            </button>
+            <button id="soundToggle" class="control-btn">
+                <i class="fas fa-volume-up"></i>
+                Sound ON
+            </button>
+            <button id="autoPlayBtn" class="control-btn">
+                <i class="fas fa-play"></i>
+                Auto Play
+            </button>
+        </div>
+
+        <!-- Particle Effect Container -->
+        <div id="particles"></div>
+        
+    </main>
+
+    <script src="games.js"></script>
+</body>
 </html>
